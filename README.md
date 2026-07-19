@@ -32,10 +32,10 @@ Some of my key learnings so far:
 - `always @(*)` → "Whenever any input changes, recalculate the output."
 - `always @(posedge clk)` → "Wait for the rising clock edge, then update the output."
 - Alternatively, "indexed vector part select" works better, but has an unfamiliar syntax:
-  assign out = in[sel*4 +: 4];
+  ```assign out = in[sel*4 +: 4];```
   Select starting at index "sel*4", then select a total width of 4 bits with increasing (+:) index number.
-  assign out = in[sel*4+3 -: 4];
-  Select starting at index "sel\*4+3", then select a total width of 4 bits with decreasing (-:) index number.
+  ```assign out = in[sel*4+3 -: 4];```
+  Select starting at index ```"sel\*4+3"```, then select a total width of 4 bits with decreasing (-:) index number.
   Note: The width (4 in this case) must be constant.
 - To check for overflow, we can use two methods, the first textbook method is,
   `Overflow = Carry into MSB ⊕ Carry out of MSB`
