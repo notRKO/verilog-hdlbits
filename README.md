@@ -30,3 +30,9 @@ Some of my key learnings so far:
 - `assign` → "This wire is always equal to this expression."
 - `always @(*)` → "Whenever any input changes, recalculate the output."
 - `always @(posedge clk)` → "Wait for the rising clock edge, then update the output."
+-  Alternatively, "indexed vector part select" works better, but has an unfamiliar syntax:
+   assign out = in[sel*4 +: 4];	
+   Select starting at index "sel*4", then select a total width of 4 bits with increasing (+:) index number.
+   assign out = in[sel*4+3 -: 4];	
+   Select starting at index "sel*4+3", then select a total width of 4 bits with decreasing (-:) index number.
+   Note: The width (4 in this case) must be constant.
