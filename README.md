@@ -41,3 +41,4 @@ Some of my key learnings so far:
   `Overflow = Carry into MSB ⊕ Carry out of MSB`
   and the other method is, if the sign bits of both a and b are same and it is different from the sign bit of the sum then there has been an overflow, lets say for an 8bit adder mathematically it can thought of as,
   `(a[7] == b[7]) && (s[7] != a[7])`
+- Parity checking is often used as a simple method of detecting errors when transmitting data through an imperfect channel.
