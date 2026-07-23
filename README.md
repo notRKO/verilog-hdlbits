@@ -1,24 +1,30 @@
 # Verilog HDLBits
 
-Solutions to HDLBits exercises while learning digital design.
+Solutions to HDLBits exercises while learning digital design and RTL coding.
 
 ## About
 
-The goal of this repository is to strengthen my understanding of digital logic design and RTL coding by solving progressively challenging HDLBits exercises.
+The goal of this repository is to strengthen my understanding of **digital logic design** and **RTL coding** by solving progressively challenging HDLBits exercises.
+
+Through these exercises, I am building a stronger foundation in both **combinational and sequential logic**, while becoming more comfortable with Verilog HDL and hardware-oriented thinking.
 
 ## Progress
 
-**Problems Solved:** 46
+**Problems Solved: 75**
 
-**Topics Covered**
+## Topics Covered
 
 - Basics of Verilog
 - Vectors
 - Modules
-- Multiplexers
+- Multiplexers (MUXes)
 - Combinational Logic
+- K-Maps and Boolean Logic Simplification
 - Always Blocks
 - Case Statements
+- Flip-Flops
+- Sequential Logic
+- Counters
 
 ## Repository Structure
 
@@ -28,17 +34,27 @@ The repository is organized according to the HDLBits sections, with each solutio
 
 Some of my key learnings so far:
 
-- `assign` → "This wire is always equal to this expression."
-- `always @(*)` → "Whenever any input changes, recalculate the output."
-- `always @(posedge clk)` → "Wait for the rising clock edge, then update the output."
-- Alternatively, "indexed vector part select" works better, but has an unfamiliar syntax:
-  ```assign out = in[sel*4 +: 4];```
-  Select starting at index "sel*4", then select a total width of 4 bits with increasing (+:) index number.
-  ```assign out = in[sel*4+3 -: 4];```
-  Select starting at index ```"sel\*4+3"```, then select a total width of 4 bits with decreasing (-:) index number.
-  Note: The width (4 in this case) must be constant.
-- To check for overflow, we can use two methods, the first textbook method is,
-  `Overflow = Carry into MSB ⊕ Carry out of MSB`
-  and the other method is, if the sign bits of both a and b are same and it is different from the sign bit of the sum then there has been an overflow, lets say for an 8bit adder mathematically it can thought of as,
-  `(a[7] == b[7]) && (s[7] != a[7])`
-- Parity checking is often used as a simple method of detecting errors when transmitting data through an imperfect channel.
+### `assign`
+
+> "This wire is always equal to this expression."
+
+Used for continuous assignments and combinational logic.
+
+### `always @(*)`
+
+> "Whenever any input changes, recalculate the output."
+
+Used to describe combinational logic using procedural blocks.
+
+### `always @(posedge clk)`
+
+> "Wait for the rising clock edge, then update the output."
+
+Used to describe synchronous sequential logic such as flip-flops, registers, and counters.
+
+### Indexed Vector Part Select
+
+An indexed vector part select can be useful when selecting a fixed-width portion of a vector based on an index:
+
+```verilog
+assign out = in[sel*4 +: 4];
