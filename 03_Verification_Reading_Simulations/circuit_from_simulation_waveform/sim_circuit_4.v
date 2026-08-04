@@ -5,6 +5,6 @@ module top_module (
     input d,
     output q );//
 
-    assign q = b+c; //incorrect, retry later
+    assign q = b|c; 
 
 endmodule

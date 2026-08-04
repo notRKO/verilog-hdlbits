@@ -164,3 +164,5 @@ always @(posedge clk) begin
         q <= q + 1;
 end
 ```
+
+Initial block can be used to pre-assign values before a waveform is generated.
